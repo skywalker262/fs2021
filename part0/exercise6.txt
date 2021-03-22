@@ -1,0 +1,17 @@
+title HTTP Sequence Diagram of submitting a new file at https://studies.cs.helsinki.fi/exampleapp/spa
+
+note over browser:
+When I submitted a new text on the text form, 
+it didn't reload the page. Instead, the browser 
+only sent one request to the server.
+end note 
+
+browser->server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server-->browser: {"message":"note created"}
+
+note over browser:
+The browser loaded the new message, 
+but did not updated messages from other users. 
+Only after reloading the page it updated new messages
+from other users.
+end note
